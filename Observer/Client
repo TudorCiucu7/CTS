@@ -1,0 +1,40 @@
+package Observer2.Implementare;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Client implements IObservator{
+
+    private String numeClient;
+    private List<String> listaNotificari;
+
+    public Client(String numeClient) {
+        this.numeClient = numeClient;
+        this.listaNotificari = new ArrayList<>();
+    }
+
+    @Override
+    public void getMesaj(String mesaj) {
+        System.out.println("Clientul : " + numeClient + " a fost anuntat de mesajul : " +
+                mesaj);
+        this.listaNotificari.add(mesaj);
+
+    }
+
+    @Override
+    public void afisareNotificari() {
+        for(String mesaj : listaNotificari){
+            System.out.println(mesaj);
+        }
+
+    }
+
+    @Override
+    public void citireNotificare(int index) {
+        if(index>=0 && index< this.listaNotificari.size()){
+            String mesaj = this.listaNotificari.get(index);
+            System.out.println(mesaj);
+            listaNotificari.remove(mesaj);
+        }
+    }
+}
