@@ -1,0 +1,5 @@
+package Strategy.Implementare;
+
+public interface IStrategy {
+    void plateste(float suma);
+}
